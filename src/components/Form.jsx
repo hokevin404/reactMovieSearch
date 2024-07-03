@@ -1,4 +1,6 @@
 function Form(props) {
+    const [formData, setFormData] = useState({searchterm: ''});
+    
   return (
     <div>
         <form>
