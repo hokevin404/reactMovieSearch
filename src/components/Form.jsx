@@ -8,6 +8,15 @@ function Form(props) {
         setFormData({ ...formData, [event.target.name]: event.target.value });
     };
 
+    // Function to initiate movie search when submission received
+    const handleSubmit = (event) => {
+        // Prevent page refresh
+        event.preventDevault();
+
+        // Pass search term to props' moviesearch to init funtion from App()
+        props.moviesearch(formData.searchterm);
+    }
+
     return (
         <div>
             <form>
