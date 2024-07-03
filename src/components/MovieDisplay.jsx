@@ -17,6 +17,9 @@ function MovieDisplay({movie}) {
     return <h1>No Movie to Display</h1>
   };
 
+  // Ternary operator will determine which function JSX will return
+  return movie ? loaded() : loading();
+
 };
 
 
