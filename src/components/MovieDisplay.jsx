@@ -12,6 +12,11 @@ function MovieDisplay({movie}) {
     );
   };
 
+  // Function to return loading JSX
+  const loading = () => {
+    return <h1>No Movie to Display</h1>
+  };
+
 };
 
 
