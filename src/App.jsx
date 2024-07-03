@@ -6,10 +6,10 @@ import './App.css';
 function App() {
 
   return (
-    <>
+    <div className='App'>
       <Form />
       <MovieDisplay />
-    </>
+    </div>
   )
 }
 
