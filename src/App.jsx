@@ -27,8 +27,8 @@ function App() {
 
   return (
     <div className='App'>
-      <Form moviesearch={getMovie}/>
-      <MovieDisplay />
+      <Form moviesearch={getMovie} />
+      <MovieDisplay movie={movie} />
     </div>
   )
 }
