@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import MovieDisplay from './components/MovieDisplay';
 import Form from './components/Form';
 import './App.css';
 
 function App() {
   // API Key
-  const apikey = "98e3fb1f";
+  const apiKey = "98e3fb1f";
 
   // State to hold data from movie api
   const [movie, setmovie] = useState(null);
@@ -24,6 +24,11 @@ function App() {
     // Set movie state to received data
     setmovie(data);
   }
+
+  // Will run on first render, but not subsquent renders
+  useEffect(() => {
+    getMovie("Clueless");
+  }, [])
 
   return (
     <div className='App'>
