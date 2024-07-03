@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 function Form(props) {
     // State to hold form data from user input
     const [formData, setFormData] = useState({ searchterm: '' });
@@ -19,9 +21,14 @@ function Form(props) {
 
     return (
         <div>
-            <form>
-                <input type="text" />
-                <input type="submit" value={submit} />
+            <form onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    name="searchterm"
+                    onChange={handleChange}
+                    value={formData.searchterm}
+                />
+                <input type="submit" value="submit" />
             </form>
         </div>
     )
