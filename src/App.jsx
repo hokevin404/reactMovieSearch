@@ -11,24 +11,28 @@ function App() {
   const [movie, setmovie] = useState(null);
 
   // Function to get movie data from api
-  const getMovie = async(searchTerm) => {
-    // Fetch request to get movie data and store response in 
-    // 'response' variable
-    const response = await fetch(
-      `http://www.omdbapi.com/?apikey=${apiKey}&t=${searchTerm}`
-    );
+  const getMovie = async (searchTerm) => {
+    try {
+      // Fetch request to get movie data and store response in 
+      // 'response' variable
+      const response = await fetch(
+        `http://www.omdbapi.com/?apikey=${apiKey}&t=${searchTerm}`
+      );
 
-    // Parse movie data into JavaScript object
-    const data = await response.json();
+      // Parse movie data into JavaScript object
+      const data = await response.json();
 
-    // Set movie state to received data
-    setmovie(data);
-  }
+      // Set movie state to received data
+      setmovie(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   // Will run on first render, but not subsquent renders
   useEffect(() => {
     getMovie("Clueless");
-  }, [])
+  }, []);
 
   return (
     <div className='App'>
