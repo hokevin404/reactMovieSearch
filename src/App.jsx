@@ -11,7 +11,7 @@ function App() {
   const [movie, setmovie] = useState(null);
 
   // Function to get movie data from api
-  const getMovie = async (searchTerm) => {
+  async function getMovie(searchTerm) {
     try {
       // Fetch request to get movie data and store response in 
       // 'response' variable
@@ -21,6 +21,7 @@ function App() {
 
       // Parse movie data into JavaScript object
       const data = await response.json();
+      console.log(data)
 
       // Set movie state to received data
       setmovie(data);
@@ -31,15 +32,15 @@ function App() {
 
   // Will run on first render, but not subsquent renders
   useEffect(() => {
-    getMovie("Clueless");
+    getMovie("Shrek");
   }, []);
 
   return (
-    <div className='App'>
+    <div className="App">
       <Form moviesearch={getMovie} />
       <MovieDisplay movie={movie} />
     </div>
-  )
+  );
 }
 
 export default App

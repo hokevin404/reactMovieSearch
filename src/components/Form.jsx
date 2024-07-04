@@ -1,23 +1,23 @@
-import { useState } from "react";
+import { useState} from "react";
 
 function Form(props) {
     // State to hold form data from user input
-    const [formData, setFormData] = useState({ searchterm: '' });
+    const [formData, setFormData] = useState({ searchterm: '', });
 
     // Function to update form
-    const handleChange = (event) => {
+    function handleChange(event) {
         // Update form values using event object to obtain user values
         setFormData({ ...formData, [event.target.name]: event.target.value });
     };
 
     // Function to initiate movie search when submission received
-    const handleSubmit = (event) => {
+    function handleSubmit(event) {
         // Prevent page refresh
-        event.preventDevault();
+        event.preventDefault();
 
         // Pass search term to props' moviesearch to init funtion from App()
         props.moviesearch(formData.searchterm);
-    }
+    };
 
     return (
         <div>
@@ -31,7 +31,7 @@ function Form(props) {
                 <input type="submit" value="submit" />
             </form>
         </div>
-    )
+    );
 }
 
 export default Form
