@@ -1,4 +1,4 @@
-import { useState} from "react";
+import { useState } from "react";
 
 function Form(props) {
     // State to hold form data from user input

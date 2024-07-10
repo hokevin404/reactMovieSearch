@@ -4,8 +4,6 @@ import Form from './components/Form';
 import './App.css';
 
 function App() {
-  // API Key
-  const apiKey = "98e3fb1f";
 
   // State to hold data from movie api
   const [movie, setmovie] = useState(null);
@@ -16,7 +14,7 @@ function App() {
       // Fetch request to get movie data and store response in 
       // 'response' variable
       const response = await fetch(
-        `http://www.omdbapi.com/?apikey=${apiKey}&t=${searchTerm}`
+        `http://www.omdbapi.com/?apikey=${import.meta.env.VITE_apiKey}&t=${searchTerm}`
       );
 
       // Parse movie data into JavaScript object
